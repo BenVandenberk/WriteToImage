@@ -39,7 +39,10 @@ namespace SchrijvenOpAfbeelding
             if (!volgNummer.Equals("")) {
                 sb.Append($"{volgNummer}-");
             }
-            return {DateTime.Now}";
+
+            sb.Append(DateTime.Now);
+
+            return sb.ToString();
         }
     }
 }
