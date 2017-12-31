@@ -19,5 +19,9 @@ namespace SchrijvenOpAfbeelding
             this.Punt = punt;
             this.TeSchrijven = teSchrijven;
         }
+
+        public override string ToString() {
+            return $"Op punt [{Punt.X}, {Punt.Y}] van afbeelding {Afbeelding} wordt [{TeSchrijven}] geschreven";
+        }
     }
 }

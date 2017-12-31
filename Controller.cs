@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Practicum13_Ben;
+using static SchrijvenOpAfbeelding.ConsoleHelper;
 
 namespace SchrijvenOpAfbeelding
 {
@@ -27,7 +28,7 @@ namespace SchrijvenOpAfbeelding
             this.schrijver = new Schrijver(new Font("Calibri", 26), Brushes.Black, @"C:\Users\Ben\Desktop");
         }
 
-        public void run() {
+        public void Run() {
             do {
                 Console.Clear();
                 Console.WriteLine(this.programmaMenu);
@@ -35,29 +36,53 @@ namespace SchrijvenOpAfbeelding
 
                 switch (this.programmaMenu.Keuze) {
                     case 1:
-                        string naam = askForStringInput("Geef een naam aan de afbeelding: ");
-                        string path = askForStringInput("Geef het absolute pad naar de afbeelding in: ");
-                        this.afbeeldingen.Add(new Afbeelding(path, naam));
+                        string naam = AskForStringInput("Geef een naam aan de afbeelding: ");
+
+                        bool geldigeAfbeelding = false;
+                        Bitmap bitmap = new Bitmap(1, 1);
+                        string path;
+                        do {
+                            path = AskForStringInput("Geef het absolute pad naar de afbeelding in: ");
+
+                            try {
+                                bitmap = (Bitmap) Image.FromFile(path);
+                                geldigeAfbeelding = true;
+                            }
+                            catch (Exception e) {
+                                Console.WriteLine("Geen geldige afbeelding");
+                                Console.WriteLine(e.Message);
+                            }
+
+                        } while (!geldigeAfbeelding);
+
+                        this.afbeeldingen.Add(new Afbeelding(path, naam, bitmap));
                         break;
                     case 2:
+                        Afbeelding afbeelding = ChooseFromList(this.afbeeldingen);
+                        Console.Clear();
+                        Console.WriteLine($"Tekstje definiëren voor {afbeelding}");
+                        Console.WriteLine(afbeelding.Afmetingen() + Environment.NewLine);
 
+                        string teSchrijven =
+                            AskForStringInput(
+                                "Typ het tekstje dat je wilt schrijven op de afbeelding. Gebruik voor een nieuwe lijn volgende tekencombinatie: +*+");
+                        int startPuntBreedte = AskForIntInput("Kies de startcoördinaat (BREEDTE)", 1, afbeelding.Bitmap.Width);
+                        int startPuntHoogte = AskForIntInput("Kies de startcoördinaat (HOOGTE)", 1,
+                            afbeelding.Bitmap.Height);
+
+                        this.tekstjes.Add(new Tekst(afbeelding, new PointF(startPuntBreedte, startPuntHoogte), teSchrijven));
+                        break;
+                    case 3:
+                        Console.WriteLine("Het programma wordt afgesloten");
                         break;
                     default:
                         break;
                 }
+
+                AnyInputToContinue();
             } while (this.programmaMenu.Keuze != 3);
         }
 
-        private string askForStringInput(string message)
-        {
-            Console.Write(message);
-            return Console.ReadLine();
-        }
 
-        private void anyInputToContinue()
-        {
-            Console.WriteLine("Druk op een toets om verder te gaan");
-            Console.ReadLine();
-        }
     }
 }

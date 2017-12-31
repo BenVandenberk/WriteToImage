@@ -25,6 +25,9 @@ namespace Practicum13_Ben
             this.MenuOpties = new List<string>(menuOpties);
         }
 
+        internal ProgrammaMenu() {
+                
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
