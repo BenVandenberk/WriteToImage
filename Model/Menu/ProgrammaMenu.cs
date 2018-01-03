@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SchrijvenOpAfbeelding.BConsole
+namespace SchrijvenOpAfbeelding.Model.Menu
 {
     public class ProgrammaMenu
     {

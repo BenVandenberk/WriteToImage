@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SchrijvenOpAfbeelding.BConsole;
 using SchrijvenOpAfbeelding.Model;
+using SchrijvenOpAfbeelding.Model.Menu;
 using static SchrijvenOpAfbeelding.BConsole.ConsoleHelper;
 
 namespace SchrijvenOpAfbeelding
