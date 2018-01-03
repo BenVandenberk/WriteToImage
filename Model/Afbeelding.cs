@@ -1,10 +1,14 @@
 ﻿using System.Drawing;
+using SchrijvenOpAfbeelding.Crud;
 
 namespace SchrijvenOpAfbeelding.Model
 {
-    public class Afbeelding
+    [BClass(Description = "Afbeelding")]
+    public class Afbeelding : IBClass
     {
+        [BProperty(Description = "Lokaal pad")]
         public string Path { get; set; }
+        [BProperty(Description = "Naam")]
         public string Naam { get; set; }
         public Bitmap Bitmap { get; set; }
 

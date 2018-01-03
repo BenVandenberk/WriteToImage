@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SchrijvenOpAfbeelding.BConsole
 {
-    public static class ConsoleHelper
+    public static class HelpMe
     {
         public static T ChooseFromList<T>(List<T> list) {
             for (int i = 1; i <= list.Count(); i++) {
