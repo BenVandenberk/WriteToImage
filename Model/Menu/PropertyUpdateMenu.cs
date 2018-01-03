@@ -7,7 +7,7 @@ namespace SchrijvenOpAfbeelding.Model.Menu
 {
     /// <summary>
     /// Note that reflection is used to fill out the specifics of this menu. Exceptions of type BReflectionException 
-    /// are thrown if the any reflect operation fails to obtain a result due to missconfiguration of 
+    /// are thrown if the any reflect operation fails to obtain a result due to misconfiguration of 
     /// the class of type T
     /// </summary>
     /// <typeparam name="T">The type of Class for which the menu enables modification</typeparam>
@@ -18,10 +18,6 @@ namespace SchrijvenOpAfbeelding.Model.Menu
 
         public PropertyUpdateMenu() : base(TITEL_TEMPLATE, new List<string>()) {
             Configure();
-        }
-
-        public override string ToString() {
-            return base.ToString();
         }
 
         private void Configure() {
