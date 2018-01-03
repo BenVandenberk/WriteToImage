@@ -4,8 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Practicum13_Ben;
-using static SchrijvenOpAfbeelding.ConsoleHelper;
+using SchrijvenOpAfbeelding.BConsole;
+using SchrijvenOpAfbeelding.Model;
+using static SchrijvenOpAfbeelding.BConsole.ConsoleHelper;
 
 namespace SchrijvenOpAfbeelding
 {

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Practicum13_Ben;
 
-namespace SchrijvenOpAfbeelding
+namespace SchrijvenOpAfbeelding.BConsole
 {
     public class CrudMenu<T> : ProgrammaMenu
     {
@@ -23,7 +21,7 @@ namespace SchrijvenOpAfbeelding
             base.Kies();
 
             switch (this.Keuze) {
-                case CrudKeuze.CREATE.index:
+                case (int)CrudKeuze.CrudEnum.Create:
                     break;
             }
         }

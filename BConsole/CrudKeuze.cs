@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Dynamic;
+﻿using System.Collections.Generic;
 
-namespace SchrijvenOpAfbeelding
+namespace SchrijvenOpAfbeelding.BConsole
 {
     public class CrudKeuze
     {

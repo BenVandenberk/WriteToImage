@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Text;
 
-namespace SchrijvenOpAfbeelding
+namespace SchrijvenOpAfbeelding.Model
 {
     public class Schrijver
     {

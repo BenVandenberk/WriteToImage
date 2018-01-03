@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace SchrijvenOpAfbeelding
+namespace SchrijvenOpAfbeelding.Model
 {
     public class Tekst
     {
@@ -21,7 +21,7 @@ namespace SchrijvenOpAfbeelding
         }
 
         public override string ToString() {
-            return $"Op punt [{Punt.X}, {Punt.Y}] van afbeelding {Afbeelding} wordt [{TeSchrijven}] geschreven";
+            return $"Op punt [{this.Punt.X}, {this.Punt.Y}] van afbeelding {this.Afbeelding} wordt [{this.TeSchrijven}] geschreven";
         }
     }
 }

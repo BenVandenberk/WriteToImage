@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Practicum13_Ben
+namespace SchrijvenOpAfbeelding.BConsole
 {
     public class ProgrammaMenu
     {
@@ -32,12 +31,12 @@ namespace Practicum13_Ben
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(Titel);
+            sb.Append(this.Titel);
             sb.Append(Environment.NewLine);
 
-            for (int i = 1; i <= MenuOpties.Count; i++)
+            for (int i = 1; i <= this.MenuOpties.Count; i++)
             {
-                sb.Append(String.Format("{0}. {1}", i, MenuOpties.ElementAt(i - 1)));
+                sb.Append(String.Format("{0}. {1}", i, this.MenuOpties.ElementAt(i - 1)));
                 sb.Append(Environment.NewLine);
             }
 
@@ -46,9 +45,9 @@ namespace Practicum13_Ben
 
         public virtual void Kies()
         {
-            while(!(Int32.TryParse(Console.ReadLine(), out keuze) && Keuze > 0 && Keuze <= MenuOpties.Count))
+            while(!(Int32.TryParse(System.Console.ReadLine(), out this.keuze) && this.Keuze > 0 && this.Keuze <= this.MenuOpties.Count))
             {
-                Console.WriteLine("Ongeldige menukeuze");
+                System.Console.WriteLine("Ongeldige menukeuze");
             }
         }
     }

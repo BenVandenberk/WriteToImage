@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace SchrijvenOpAfbeelding
+namespace SchrijvenOpAfbeelding.Model
 {
     public class Afbeelding
     {
@@ -22,7 +21,7 @@ namespace SchrijvenOpAfbeelding
         }
 
         public string Afmetingen() {
-            return $"[BREEDTE={Bitmap.Width} | HOOGTE={Bitmap.Height}]";
+            return $"[BREEDTE={this.Bitmap.Width} | HOOGTE={this.Bitmap.Height}]";
         }
 
         public override string ToString() {
