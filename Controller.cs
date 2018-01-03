@@ -19,14 +19,14 @@ namespace SchrijvenOpAfbeelding
         private const string AFBEELDINGEN = "Afbeeldingen";
         private const string STOP = "Stop het programma";
         
-        private ProgrammaMenu programmaMenu;
+        private ConsoleProgrammaMenu programmaMenu;
         private CrudMenu<Afbeelding> afbeeldingCrudMenu;
         private List<Afbeelding> afbeeldingen;
         private List<Tekst> tekstjes;
         private Schrijver schrijver;
 
         public Controller() {
-            this.programmaMenu = new ProgrammaMenu(TITEL, new List<string>() {AFBEELDING_INSTELLEN, TEKSJES_INSTELLEN, AFBEELDINGEN, STOP});
+            this.programmaMenu = new ConsoleProgrammaMenu(TITEL, new List<string>() {AFBEELDING_INSTELLEN, TEKSJES_INSTELLEN, AFBEELDINGEN, STOP});
             this.afbeeldingCrudMenu = new CrudMenu<Afbeelding>("Afbeelding", new List<Afbeelding>());
             this.afbeeldingen = new List<Afbeelding>();
             this.tekstjes = new List<Tekst>();

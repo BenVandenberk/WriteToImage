@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SchrijvenOpAfbeelding.Model.Menu
 {
-    public class CrudMenu<T> : ProgrammaMenu
+    public class CrudMenu<T> : ConsoleProgrammaMenu
     {
         public List<T> List { get; set; }
 
