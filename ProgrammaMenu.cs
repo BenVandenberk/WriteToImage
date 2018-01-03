@@ -44,7 +44,7 @@ namespace Practicum13_Ben
             return sb.ToString();
         }
 
-        public void Kies()
+        public virtual void Kies()
         {
             while(!(Int32.TryParse(Console.ReadLine(), out keuze) && Keuze > 0 && Keuze <= MenuOpties.Count))
             {

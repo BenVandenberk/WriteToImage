@@ -14,15 +14,18 @@ namespace SchrijvenOpAfbeelding
         private const string TITEL = "*** Apo Hax ***";
         private const string AFBEELDING_INSTELLEN = "Nieuwe afbeelding instellen";
         private const string TEKSJES_INSTELLEN = "Een tekstje instellen voor een afbeelding";
+        private const string AFBEELDINGEN = "Afbeeldingen";
         private const string STOP = "Stop het programma";
         
         private ProgrammaMenu programmaMenu;
+        private CrudMenu<Afbeelding> afbeeldingCrudMenu;
         private List<Afbeelding> afbeeldingen;
         private List<Tekst> tekstjes;
         private Schrijver schrijver;
 
         public Controller() {
-            this.programmaMenu = new ProgrammaMenu(TITEL, new List<string>() {AFBEELDING_INSTELLEN, TEKSJES_INSTELLEN, STOP});
+            this.programmaMenu = new ProgrammaMenu(TITEL, new List<string>() {AFBEELDING_INSTELLEN, TEKSJES_INSTELLEN, AFBEELDINGEN, STOP});
+            this.afbeeldingCrudMenu = new CrudMenu<Afbeelding>("Afbeelding", new List<Afbeelding>());
             this.afbeeldingen = new List<Afbeelding>();
             this.tekstjes = new List<Tekst>();
             this.schrijver = new Schrijver(new Font("Calibri", 26), Brushes.Black, @"C:\Users\Ben\Desktop");
@@ -73,6 +76,12 @@ namespace SchrijvenOpAfbeelding
                         this.tekstjes.Add(new Tekst(afbeelding, new PointF(startPuntBreedte, startPuntHoogte), teSchrijven));
                         break;
                     case 3:
+                        Console.Clear();
+                        Console.WriteLine(this.afbeeldingCrudMenu.ToString());
+                        this.afbeeldingCrudMenu.Kies();
+
+                        break;
+                    case 4:
                         Console.WriteLine("Het programma wordt afgesloten");
                         break;
                     default:
@@ -80,7 +89,7 @@ namespace SchrijvenOpAfbeelding
                 }
 
                 AnyInputToContinue();
-            } while (this.programmaMenu.Keuze != 3);
+            } while (this.programmaMenu.Keuze != 4);
         }
 
 
