@@ -7,8 +7,8 @@ namespace SchrijvenOpAfbeelding.Reflection
 {
     public static class HelpMe
     {
-        public static string AttributeStringData(Object obj, Type attributeType, string attributeDataName) {
-            CustomAttributeData customAttributeData = obj.GetType().CustomAttributes
+        public static string AttributeStringData(Type type, Type attributeType, string attributeDataName) {
+            CustomAttributeData customAttributeData = type.CustomAttributes
                 .FirstOrDefault(attr => attr.AttributeType.Equals(attributeType));
 
             if (customAttributeData == null) {

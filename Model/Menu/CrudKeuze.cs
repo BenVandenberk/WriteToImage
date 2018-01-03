@@ -33,7 +33,7 @@ namespace SchrijvenOpAfbeelding.Model.Menu
         }
 
         public enum CrudEnum {
-            Create, Update, Delete, List, Return
+            Create = 1, Update = 2, Delete = 3, List = 4, Return = 5
         }
     }
 

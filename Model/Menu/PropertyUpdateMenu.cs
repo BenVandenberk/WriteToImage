@@ -11,13 +11,17 @@ namespace SchrijvenOpAfbeelding.Model.Menu
     /// the class of type T
     /// </summary>
     /// <typeparam name="T">The type of Class for which the menu enables modification</typeparam>
-    public class PropertyUpdateMenu<T> : AbstractProgrammaMenu where T : IBClass
+    public class PropertyUpdateMenu<T> : ConsoleProgrammaMenu where T : IBClass
     {
         private const string PLACEHOLDER = "£";
         private const string TITEL_TEMPLATE = "*** Pas £ gegevens aan ***";
 
         public PropertyUpdateMenu() : base(TITEL_TEMPLATE, new List<string>()) {
             Configure();
+        }
+
+        public override string ToString() {
+            return base.ToString();
         }
 
         private void Configure() {

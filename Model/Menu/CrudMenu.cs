@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SchrijvenOpAfbeelding.Model.Menu
 {
-    public class CrudMenu<T> : ConsoleProgrammaMenu
+    public class CrudMenu<T> : ConsoleProgrammaMenu where T : IBClass
     {
         public List<T> List { get; set; }
 
@@ -18,6 +19,9 @@ namespace SchrijvenOpAfbeelding.Model.Menu
                 case (int)CrudKeuze.CrudEnum.Create:
                     break;
                 case (int)CrudKeuze.CrudEnum.Update:
+                    Console.Clear();
+                    PropertyUpdateMenu<T> updateMenu = new PropertyUpdateMenu<T>();
+                    Console.WriteLine(updateMenu);
                     break;
                 case (int)CrudKeuze.CrudEnum.Delete:
                     break;
