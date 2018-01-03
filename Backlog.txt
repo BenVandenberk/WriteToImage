@@ -1,1 +1,4 @@
 ﻿- HelpMe Fluent API - Eventueel met Singleton collection object
+- i18n + constant strings centraliseren
+- PLACEHOLDER (£) improven
+- Reusable items in dlls steken
