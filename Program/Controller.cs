@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using SchrijvenOpAfbeelding.BConsole;
 using SchrijvenOpAfbeelding.Model;
+using SchrijvenOpAfbeelding.Model.Core;
 using SchrijvenOpAfbeelding.Model.Menu;
 
 namespace SchrijvenOpAfbeelding.Program

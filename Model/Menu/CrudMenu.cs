@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SchrijvenOpAfbeelding.Model.Core;
 
 namespace SchrijvenOpAfbeelding.Model.Menu
 {

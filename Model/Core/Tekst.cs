@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using SchrijvenOpAfbeelding.Crud;
 
-namespace SchrijvenOpAfbeelding.Model
+namespace SchrijvenOpAfbeelding.Model.Core
 {
     [BClass(Description = "Tekst")]
     public class Tekst : IBClass
