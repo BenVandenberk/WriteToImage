@@ -20,8 +20,8 @@ namespace SchrijvenOpAfbeelding.Model.Menu
                     break;
                 case (int)CrudKeuze.CrudEnum.Update:
                     Console.Clear();
-                    PropertyUpdateMenu<T> updateMenu = new PropertyUpdateMenu<T>();
-                    Console.WriteLine(updateMenu);
+                    //PropertyUpdateMenu<T> updateMenu = new PropertyUpdateMenu<T>();
+                    //Console.WriteLine(updateMenu);
                     break;
                 case (int)CrudKeuze.CrudEnum.Delete:
                     break;

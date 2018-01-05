@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Drawing;
 using System.Text;
+using SchrijvenOpAfbeelding.Crud;
 
 namespace SchrijvenOpAfbeelding.Model
 {
-    public class Schrijver
+    [BClass(Description = "Schrijver")]
+    public class Schrijver : IBClass
     {
         public Font Font { get; set; }
         public Brush Brush { get; set; }

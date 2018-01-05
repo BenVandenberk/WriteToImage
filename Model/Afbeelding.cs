@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using SchrijvenOpAfbeelding.Crud;
 
 namespace SchrijvenOpAfbeelding.Model
@@ -6,6 +7,9 @@ namespace SchrijvenOpAfbeelding.Model
     [BClass(Description = "Afbeelding")]
     public class Afbeelding : IBClass
     {
+        [BProperty(Description = "Id")]
+        public Guid Guid { get; }
+
         [BProperty(Description = "Lokaal pad")]
         public string Path { get; set; }
         [BProperty(Description = "Naam")]
@@ -18,10 +22,11 @@ namespace SchrijvenOpAfbeelding.Model
             this.Bitmap = new Bitmap(1, 1);
         }
 
-        public Afbeelding(string path, string naam, Bitmap bitmap) {
+        public Afbeelding(string path, string naam, Bitmap bitmap, Guid guid) {
             this.Path = path;
             this.Naam = naam;
             this.Bitmap = bitmap;
+            this.Guid = guid;
         }
 
         public string Afmetingen() {

@@ -1,8 +1,10 @@
 ﻿using System.Drawing;
+using SchrijvenOpAfbeelding.Crud;
 
 namespace SchrijvenOpAfbeelding.Model
 {
-    public class Tekst
+    [BClass(Description = "Tekst")]
+    public class Tekst : IBClass
     {
         public Afbeelding Afbeelding { get; set; }
         public PointF Punt { get; set; }
