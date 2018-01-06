@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SchrijvenOpAfbeelding.Model;
+using SchrijvenOpAfbeelding.Model.Core;
 using Type = System.Type;
 
 namespace SchrijvenOpAfbeelding.Persistency

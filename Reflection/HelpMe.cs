@@ -26,6 +26,8 @@ namespace SchrijvenOpAfbeelding.Reflection
             return customAttributeNamedArgument.TypedValue.Value.ToString();
         }
 
+
+
         public static List<PropertyInfo> PropertiesWithAttribute(Type type, Type attributeType) {
             return type.GetProperties().Where(prop => prop.IsDefined(attributeType, false)).ToList();
         }

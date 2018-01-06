@@ -57,7 +57,7 @@ namespace SchrijvenOpAfbeelding.Program
 
                         } while (!geldigeAfbeelding);
 
-                        this.afbeeldingen.Add(new Afbeelding(path, naam, bitmap));
+                        //this.afbeeldingen.Add(new Afbeelding(path, naam, bitmap));
                         break;
                     case 2:
                         Afbeelding afbeelding = HelpMe.ChooseFromList(this.afbeeldingen);
