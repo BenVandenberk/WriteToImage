@@ -36,6 +36,11 @@ namespace SchrijvenOpAfbeelding.Reflection
             return PropertiesWithAttribute(type, typeof(BProperty));
         }
 
+        public static PropertyInfo BPropertyWithDescription(Type type, string desc) {
+            return PropertiesWithBPropertyAttribute(type)
+                .Find(prop => prop.GetCustomAttribute<BProperty>().Description.Equals(desc));
+        } 
+
         public static T AttributeOfType<T>(PropertyInfo property) where T : Attribute {
             return (T) property.GetCustomAttribute(typeof(T));
         }
