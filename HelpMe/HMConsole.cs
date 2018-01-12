@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SchrijvenOpAfbeelding.BConsole
+namespace SchrijvenOpAfbeelding.HelpMe
 {
-    public static class HelpMe
+    public class HmConsole
     {
-        public static T ChooseFromList<T>(List<T> list) {
+        private static HmConsole single;
+
+        public static HmConsole Single => single ?? (single = new HmConsole());
+        private HmConsole() {
+            
+        }
+
+        public T ChooseFromList<T>(List<T> list) {
             for (int i = 1; i <= list.Count(); i++) {
                 System.Console.WriteLine($"{i}. {list.ElementAt(i - 1)}");
             }
@@ -14,11 +21,11 @@ namespace SchrijvenOpAfbeelding.BConsole
             return list.ElementAt(AskForIntInput(1, list.Count) - 1);
         }
 
-        public static int AskForIntInput(int lowerBoundInclusive, int upperBoundInclusive) {
+        public int AskForIntInput(int lowerBoundInclusive, int upperBoundInclusive) {
             return AskForIntInput("Kies", lowerBoundInclusive, upperBoundInclusive);
         }
 
-        public static int AskForIntInput(string message, int lowerBoundInclusive, int upperBoundInclusive) {
+        public int AskForIntInput(string message, int lowerBoundInclusive, int upperBoundInclusive) {
             int choice = int.MinValue;
 
             do {
@@ -31,19 +38,19 @@ namespace SchrijvenOpAfbeelding.BConsole
             return choice;
         }
 
-        public static string AskForStringInput(string message)
+        public string AskForStringInput(string message)
         {
             System.Console.Write(message);
             return System.Console.ReadLine();
         }
 
-        public static void AnyInputToContinue()
+        public void AnyInputToContinue()
         {
             System.Console.WriteLine("Druk op een toets om verder te gaan");
             System.Console.ReadLine();
         }
 
-        private static bool OutOfBounds(int toTest, int lowerInclusive, int upperInclusive) {
+        private bool OutOfBounds(int toTest, int lowerInclusive, int upperInclusive) {
             return toTest < lowerInclusive || toTest > upperInclusive;
         }
     }

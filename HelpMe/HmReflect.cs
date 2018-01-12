@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using SchrijvenOpAfbeelding.Crud;
+using SchrijvenOpAfbeelding.Reflection;
 
-namespace SchrijvenOpAfbeelding.Reflection
+namespace SchrijvenOpAfbeelding.HelpMe
 {
-    public static class HelpMe
+    public class HmReflect
     {
-        public static string AttributeStringData(Type type, Type attributeType, string attributeDataName) {
+        private static HmReflect single;
+        public static HmReflect Single => single ?? (single = new HmReflect());
+
+        private HmReflect() {
+            
+        }
+
+        public string AttributeStringData(Type type, Type attributeType, string attributeDataName) {
             CustomAttributeData customAttributeData = type.CustomAttributes
                 .FirstOrDefault(attr => attr.AttributeType.Equals(attributeType));
 
@@ -28,28 +36,28 @@ namespace SchrijvenOpAfbeelding.Reflection
 
 
 
-        public static List<PropertyInfo> PropertiesWithAttribute(Type type, Type attributeType) {
+        public List<PropertyInfo> PropertiesWithAttribute(Type type, Type attributeType) {
             return type.GetProperties().Where(prop => prop.IsDefined(attributeType, false)).ToList();
         }
 
-        public static List<PropertyInfo> PropertiesWithBPropertyAttribute(Type type) {
+        public List<PropertyInfo> PropertiesWithBPropertyAttribute(Type type) {
             return PropertiesWithAttribute(type, typeof(BProperty));
         }
 
-        public static PropertyInfo BPropertyWithDescription(Type type, string desc) {
+        public PropertyInfo BPropertyWithDescription(Type type, string desc) {
             return PropertiesWithBPropertyAttribute(type)
                 .Find(prop => prop.GetCustomAttribute<BProperty>().Description.Equals(desc));
         } 
 
-        public static T AttributeOfType<T>(PropertyInfo property) where T : Attribute {
+        public T AttributeOfType<T>(PropertyInfo property) where T : Attribute {
             return (T) property.GetCustomAttribute(typeof(T));
         }
         
-        public static T PropertyValue<T>(Object obj, PropertyInfo property) {
+        public T PropertyValue<T>(Object obj, PropertyInfo property) {
             return (T) property.GetValue(obj);
         }
 
-        public static string PropertyValueString(Object obj, PropertyInfo property) {
+        public string PropertyValueString(Object obj, PropertyInfo property) {
             return property.GetValue(obj).ToString();
         }
     }

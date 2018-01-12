@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using SchrijvenOpAfbeelding.Crud;
 using SchrijvenOpAfbeelding.Model.Core;
-using SchrijvenOpAfbeelding.Reflection;
+using static SchrijvenOpAfbeelding.HelpMe.HelpMe;
 
 namespace SchrijvenOpAfbeelding.Model.Menu
 {
@@ -42,8 +42,9 @@ namespace SchrijvenOpAfbeelding.Model.Menu
 
             // Menu title (=~ class type)
             string typeName =
-                HelpMe.AttributeStringData(typeArgument, typeof(BClass), "Description");
+                HelpMeReflect.AttributeStringData(typeArgument, typeof(BClass), "Description");
             this.Titel = TITEL_TEMPLATE.Replace(PLACEHOLDER, typeName);
+            
 
             // Menu options (=~ class properties)
             this.bProperties = HelpMe.PropertiesWithBPropertyAttribute(typeArgument);
