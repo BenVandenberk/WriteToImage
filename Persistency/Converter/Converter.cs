@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 
 namespace SchrijvenOpAfbeelding.Persistency.Converter
 {
@@ -14,8 +16,15 @@ namespace SchrijvenOpAfbeelding.Persistency.Converter
             this.Input = input;
         }
 
-        public virtual TOutput Convert() {
-            throw new NotImplementedException();
+        public virtual object Convert() {
+            var @switch = new Dictionary<Type, Func<Type, object>> {
+                { typeof(string), t => this.Input },
+                { typeof(int), t => int.Parse(this.Input) },
+                { typeof(double), t => double.Parse(this.Input) },
+                { typeof(short), t => short.Parse(this.Input) }
+            };
+
+            return @switch[typeof(TOutput)];
         }
     }
 }
