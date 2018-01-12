@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Text;
 using SchrijvenOpAfbeelding.Crud;
 using SchrijvenOpAfbeelding.ExtensionMethods;
-using SchrijvenOpAfbeelding.Reflection;
+using static SchrijvenOpAfbeelding.HelpMe.HelpMe;
 
 namespace SchrijvenOpAfbeelding.Model.Menu
 {
@@ -19,11 +19,11 @@ namespace SchrijvenOpAfbeelding.Model.Menu
         public Object Obj { get; }
 
         public PropertyUpdateDetailMenu(PropertyInfo property, Object obj) : base(TITEL_TEMPLATE, new List<string>()) {
-            this.BPropertyAttr = HelpMe.AttributeOfType<BProperty>(property);
+            this.BPropertyAttr = HelpMeReflect.AttributeOfType<BProperty>(property);
             this.Titel = TITEL_TEMPLATE.Replace(PLACEHOLDER, this.BPropertyAttr.Description);
             this.Property = property;
             this.Obj = obj;
-            this.Old = HelpMe.PropertyValueString(obj, property);
+            this.Old = HelpMeReflect.PropertyValueString(obj, property);
         }
 
         public override string ToString() {

@@ -6,9 +6,8 @@ using System.Reflection;
 using System.Text;
 using SchrijvenOpAfbeelding.Crud;
 using SchrijvenOpAfbeelding.ExtensionMethods;
-using SchrijvenOpAfbeelding.Model;
 using SchrijvenOpAfbeelding.Model.Core;
-using SchrijvenOpAfbeelding.Reflection;
+using static SchrijvenOpAfbeelding.HelpMe.HelpMe;
 
 namespace SchrijvenOpAfbeelding.Persistency
 {
@@ -35,18 +34,18 @@ namespace SchrijvenOpAfbeelding.Persistency
 
         private string BClassFileName(IBClass bClass) {
             StringBuilder sb = new StringBuilder();
-            sb.Append(HelpMe.AttributeStringData(bClass.GetType(), typeof(BClass), "Description"));
+            sb.Append(HelpMeReflect.AttributeStringData(bClass.GetType(), typeof(BClass), "Description"));
             sb.Append(".txt");
             return sb.ToString();
         }
 
         private string BClassToString(IBClass bClass) {
-            List<PropertyInfo> properties = HelpMe.PropertiesWithBPropertyAttribute(bClass.GetType());
+            List<PropertyInfo> properties = HelpMeReflect.PropertiesWithBPropertyAttribute(bClass.GetType());
             StringBuilder sb = new StringBuilder();
             
             foreach (PropertyInfo property in properties) {
-                string propertyName = HelpMe.AttributeOfType<BProperty>(property).Description;
-                string propertyValue = HelpMe.PropertyValueString(bClass, property);
+                string propertyName = HelpMeReflect.AttributeOfType<BProperty>(property).Description;
+                string propertyValue = HelpMeReflect.PropertyValueString(bClass, property);
                 sb.Append($"{propertyName}={propertyValue}{DELIMITER}");
             }
 

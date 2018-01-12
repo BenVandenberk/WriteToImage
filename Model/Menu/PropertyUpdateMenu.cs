@@ -47,8 +47,8 @@ namespace SchrijvenOpAfbeelding.Model.Menu
             
 
             // Menu options (=~ class properties)
-            this.bProperties = HelpMe.PropertiesWithBPropertyAttribute(typeArgument);
-            this.MenuOpties = this.bProperties.Select(HelpMe.AttributeOfType<BProperty>)
+            this.bProperties = HelpMeReflect.PropertiesWithBPropertyAttribute(typeArgument);
+            this.MenuOpties = this.bProperties.Select(HelpMeReflect.AttributeOfType<BProperty>)
                 .Select(bProp => bProp.Description)
                 .ToList();
 

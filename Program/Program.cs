@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using SchrijvenOpAfbeelding.Crud;
 using SchrijvenOpAfbeelding.Model.Core;
 using SchrijvenOpAfbeelding.Persistency;
-using SchrijvenOpAfbeelding.Reflection;
+using static SchrijvenOpAfbeelding.HelpMe.HelpMe;
 
 namespace SchrijvenOpAfbeelding.Program
 {
@@ -31,7 +30,7 @@ namespace SchrijvenOpAfbeelding.Program
             Console.ReadLine();
             dataContext.Delete(afbeelding);
             Console.ReadLine();
-            List<PropertyInfo> properties = HelpMe.PropertiesWithBPropertyAttribute(typeof(Afbeelding));
+            List<PropertyInfo> properties = HelpMeReflect.PropertiesWithBPropertyAttribute(typeof(Afbeelding));
             PropertyInfo naamPropertyInfo =
                 properties.Find(prop => prop.GetCustomAttribute<BProperty>().Description.Equals("Naam"));
             dataContext.Update(afbeelding2, naamPropertyInfo, "Veranderde naam");
